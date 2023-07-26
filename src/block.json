@@ -5,7 +5,6 @@
 	"version": "0.1.0",
 	"title": "Textbox",
 	"category": "text",
-	"icon": "text",
 	"description": "A box of text.",
 	"keywords": ["text", "textbox", "paragraph", "box"],
 	"supports": {

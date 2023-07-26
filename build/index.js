@@ -38,20 +38,35 @@ function Edit() {
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/edit.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/save.js");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/block.json");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./edit */ "./src/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./save */ "./src/save.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./block.json */ "./src/block.json");
 
 
 
 
 
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_4__.name, {
-  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
-  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_5__.name, {
+  icon: {
+    src: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 128 128",
+      width: "128px",
+      height: "128px"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+      d: "M32 122h10c1.7 0 3-1.3 3-3s-1.3-3-3-3H32c-3.9 0-7-3.1-7-7V99c0-1.7-1.3-3-3-3s-3 1.3-3 3v10C19 116.2 24.8 122 32 122zM86 122h10c7.2 0 13-5.8 13-13V99c0-1.7-1.3-3-3-3s-3 1.3-3 3v10c0 3.9-3.1 7-7 7H86c-1.7 0-3 1.3-3 3S84.3 122 86 122zM42 6H32c-7.2 0-13 5.8-13 13v10c0 1.7 1.3 3 3 3s3-1.3 3-3V19c0-3.9 3.1-7 7-7h10c1.7 0 3-1.3 3-3S43.7 6 42 6zM86 6c-1.7 0-3 1.3-3 3 0 .2 0 .3.1.5C83 9.7 83 9.8 83 10v9c0 7.2 5.8 13 13 13h9c.2 0 .3 0 .5-.1.2 0 .3 0 .5 0 1.7 0 3-1.3 3-3C109 16.3 98.7 6 86 6zM96 26c-3.9 0-7-3.1-7-7v-6.7c7 1.2 12.5 6.7 13.7 13.7H96zM39 59c0 1.7 1.3 3 3 3h44c1.7 0 3-1.3 3-3s-1.3-3-3-3H42C40.3 56 39 57.3 39 59zM89 74c0-1.7-1.3-3-3-3H42c-1.7 0-3 1.3-3 3s1.3 3 3 3h44C87.7 77 89 75.7 89 74zM69.2 89c0-1.7-1.3-3-3-3h-24c-1.7 0-3 1.3-3 3s1.3 3 3 3h24C67.9 92 69.2 90.7 69.2 89z"
+    })),
+    background: '#f28245',
+    foreground: '#fff'
+  },
+  edit: _edit__WEBPACK_IMPORTED_MODULE_3__["default"],
+  save: _save__WEBPACK_IMPORTED_MODULE_4__["default"]
 });
 
 /***/ }),
@@ -166,7 +181,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"blocks-course/text-box","version":"0.1.0","title":"Textbox","category":"text","icon":"text","description":"A box of text.","keywords":["text","textbox","paragraph","box"],"supports":{"html":false},"textdomain":"text-box","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"blocks-course/text-box","version":"0.1.0","title":"Textbox","category":"text","description":"A box of text.","keywords":["text","textbox","paragraph","box"],"supports":{"html":false},"textdomain":"text-box","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 
