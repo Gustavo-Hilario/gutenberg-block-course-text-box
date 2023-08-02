@@ -23,6 +23,18 @@
 		"alignment": {
 			"type": "string",
 			"default": "left"
+		},
+		"textcolor": {
+			"type": "string",
+			"default": "#000"
+		},
+		"blockbgcolor": {
+			"type": "string",
+			"default": "#f60"
+		},
+		"isblockbgcolorenabled": {
+			"type": "boolean",
+			"default": true
 		}
 	}
 }

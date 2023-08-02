@@ -1,7 +1,7 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function save( { attributes } ) {
-	const { text, alignment } = attributes;
+	const { text, alignment, blockbgcolor } = attributes;
 	return (
 		<RichText.Content
 			{ ...useBlockProps.save( {
@@ -9,6 +9,7 @@ export default function save( { attributes } ) {
 			} ) }
 			value={ text }
 			tagName="h4"
+			style={ { backgroundColor: blockbgcolor } }
 		/>
 	);
 }
