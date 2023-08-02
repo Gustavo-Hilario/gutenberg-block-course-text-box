@@ -21,8 +21,7 @@ import {
 import './editor.scss';
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { text, alignment, textcolor, blockbgcolor, isblockbgcolorenabled } =
-		attributes;
+	const { text, alignment, textcolor, blockbgcolor } = attributes;
 
 	const blockDefaultColors = [
 		{ name: 'red', color: '#f00' },
@@ -40,7 +39,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		setAttributes( { alignment: newalignment } );
 	};
 
-	const onBgColorChange = ( newBGColor ) => {
+	const onBlockBackgroundColorChange = ( newBGColor ) => {
 		setAttributes( { blockbgcolor: newBGColor } );
 	};
 
@@ -90,7 +89,7 @@ export default function Edit( { attributes, setAttributes } ) {
 					<ColorPalette
 						colors={ blockDefaultColors }
 						value={ blockbgcolor }
-						onChange={ ( value ) => onBgColorChange( value.hex ) }
+						onChange={ onBlockBackgroundColorChange }
 					/>
 
 					<ToggleControl
@@ -99,7 +98,9 @@ export default function Edit( { attributes, setAttributes } ) {
 							'Enable/Disable Background Color',
 							'text-box'
 						) }
-						checked={ isblockbgcolorenabled }
+						checked={
+							blockbgcolor !== 'transparent' ? true : false
+						}
 						onChange={ onToggleBgColor }
 					/>
 					<PanelRow>Text Color</PanelRow>
@@ -118,18 +119,19 @@ export default function Edit( { attributes, setAttributes } ) {
 				/>
 			</BlockControls>
 			<RichText
+				// By adding className and style we don't overwrite the default classes and styles
 				{ ...useBlockProps( {
 					className: `text-box-align-${ alignment }`,
+					style: {
+						backgroundColor: `${ blockbgcolor }`,
+						color: `${ textcolor }`,
+					},
 				} ) }
 				onChange={ onChangeText } // Store updated content as a block attribute
 				value={ text } //dynamic value
 				placeholder={ __( 'Enter your text here …' ) }
 				allowedFormats={ [ 'core/bold', 'core/italic' ] }
 				tagName="h4"
-				style={ {
-					backgroundColor: `${ blockbgcolor }`,
-					color: `${ textcolor }`,
-				} }
 			/>
 		</>
 	);

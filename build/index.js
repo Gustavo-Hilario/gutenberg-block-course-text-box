@@ -34,8 +34,7 @@ function Edit({
     text,
     alignment,
     textcolor,
-    blockbgcolor,
-    isblockbgcolorenabled
+    blockbgcolor
   } = attributes;
   const blockDefaultColors = [{
     name: 'red',
@@ -66,7 +65,7 @@ function Edit({
       alignment: newalignment
     });
   };
-  const onBgColorChange = newBGColor => {
+  const onBlockBackgroundColorChange = newBGColor => {
     setAttributes({
       blockbgcolor: newBGColor
     });
@@ -113,11 +112,11 @@ function Edit({
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, "Block Background Color"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPalette, {
     colors: blockDefaultColors,
     value: blockbgcolor,
-    onChange: value => onBgColorChange(value.hex)
+    onChange: onBlockBackgroundColorChange
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Toggle Background Color', 'text-box'),
     help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable/Disable Background Color', 'text-box'),
-    checked: isblockbgcolorenabled,
+    checked: blockbgcolor !== 'transparent' ? true : false,
     onChange: onToggleBgColor
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, "Text Color"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPicker, {
     color: textcolor,
@@ -126,9 +125,15 @@ function Edit({
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.AlignmentToolbar, {
     value: alignment,
     onChange: onChangeAlignment
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText
+  // By adding className and style we don't overwrite the default classes and styles
+  , {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
-      className: `text-box-align-${alignment}`
+      className: `text-box-align-${alignment}`,
+      style: {
+        backgroundColor: `${blockbgcolor}`,
+        color: `${textcolor}`
+      }
     }),
     onChange: onChangeText // Store updated content as a block attribute
     ,
@@ -136,11 +141,7 @@ function Edit({
     ,
     placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enter your text here …'),
     allowedFormats: ['core/bold', 'core/italic'],
-    tagName: "h4",
-    style: {
-      backgroundColor: `${blockbgcolor}`,
-      color: `${textcolor}`
-    }
+    tagName: "h4"
   }));
 }
 
@@ -208,17 +209,19 @@ function save({
   const {
     text,
     alignment,
-    blockbgcolor
+    blockbgcolor,
+    textcolor
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
-      className: `text-box-align-${alignment}`
+      className: `text-box-align-${alignment}`,
+      style: {
+        backgroundColor: blockbgcolor,
+        color: textcolor
+      }
     }),
     value: text,
-    tagName: "h4",
-    style: {
-      backgroundColor: blockbgcolor
-    }
+    tagName: "h4"
   });
 }
 
@@ -304,7 +307,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"blocks-course/text-box","version":"0.1.0","title":"Textbox","category":"text","description":"A box of text.","keywords":["text","textbox","paragraph","box"],"supports":{"html":false},"textdomain":"text-box","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"text":{"type":"string","source":"html","selector":"h4"},"alignment":{"type":"string","default":"left"},"textcolor":{"type":"string","default":"#000"},"blockbgcolor":{"type":"string","default":"#f60"},"isblockbgcolorenabled":{"type":"boolean","default":true}}}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"blocks-course/text-box","version":"0.1.0","title":"Textbox","category":"text","description":"A box of text.","keywords":["text","textbox","paragraph","box"],"supports":{"html":false},"textdomain":"text-box","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"text":{"type":"string","source":"html","selector":"h4"},"alignment":{"type":"string","default":"left"},"textcolor":{"type":"string","default":"#000"},"blockbgcolor":{"type":"string","default":"#f60"}}}');
 
 /***/ })
 

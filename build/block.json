@@ -36,10 +36,6 @@
     "blockbgcolor": {
       "type": "string",
       "default": "#f60"
-    },
-    "isblockbgcolorenabled": {
-      "type": "boolean",
-      "default": true
     }
   }
 }
