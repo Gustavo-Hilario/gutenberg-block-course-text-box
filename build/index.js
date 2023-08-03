@@ -36,25 +36,6 @@ function Edit({
     textcolor,
     blockbgcolor
   } = attributes;
-  const blockDefaultColors = [{
-    name: 'red',
-    color: '#f00'
-  }, {
-    name: 'white',
-    color: '#fff'
-  }, {
-    name: 'blue',
-    color: '#00f'
-  }, {
-    name: 'green',
-    color: '#0f0'
-  }, {
-    name: 'orange',
-    color: '#f60'
-  }, {
-    name: 'purple',
-    color: '#f0f'
-  }];
   const onChangeText = newtext => {
     setAttributes({
       text: newtext
@@ -70,29 +51,29 @@ function Edit({
       blockbgcolor: newBGColor
     });
   };
-  const onToggleBgColor = toggledBgColor => {
-    if (toggledBgColor) {
-      setAttributes({
-        isblockbgcolorenabled: true
-      });
-      setAttributes({
-        blockbgcolor: '#f60'
-      });
-    } else {
-      setAttributes({
-        isblockbgcolorenabled: false
-      });
-      setAttributes({
-        blockbgcolor: 'transparent'
-      });
-    }
-  };
   const onTextColorChange = newTextColor => {
     setAttributes({
       textcolor: newTextColor
     });
   };
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'text-box'),
+    icon: "admin-appearance",
+    initialOpen: false,
+    disableCustomColors: false,
+    colorSettings: [{
+      value: blockbgcolor,
+      onChange: onBlockBackgroundColorChange,
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Block Background Color', 'text-box')
+    }, {
+      value: textcolor,
+      onChange: onTextColorChange,
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Text Color', 'text-box')
+    }]
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.ContrastChecker, {
+    textColor: textcolor,
+    backgroundColor: blockbgcolor
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Text Controls', 'text-box'),
     icon: "text",
     initialOpen: true
@@ -105,23 +86,6 @@ function Edit({
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Nice Text Area', 'text-box'),
     placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enter your text here!', 'text-box'),
     help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Help Textarea', 'text-box')
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'text-box'),
-    icon: "admin-appearance",
-    initialOpen: false
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, "Block Background Color"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPalette, {
-    colors: blockDefaultColors,
-    value: blockbgcolor,
-    onChange: onBlockBackgroundColorChange
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Toggle Background Color', 'text-box'),
-    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable/Disable Background Color', 'text-box'),
-    checked: blockbgcolor !== 'transparent' ? true : false,
-    onChange: onToggleBgColor
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, "Text Color"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPicker, {
-    color: textcolor,
-    enableAlpha: true,
-    onChangeComplete: v => onTextColorChange(v.hex)
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.AlignmentToolbar, {
     value: alignment,
     onChange: onChangeAlignment
