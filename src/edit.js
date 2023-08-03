@@ -8,28 +8,31 @@ import {
 	InspectorControls,
 	PanelColorSettings,
 	ContrastChecker,
+	withColors,
 } from '@wordpress/block-editor';
 
 import { PanelBody, TextareaControl, TextControl } from '@wordpress/components';
 
 import './editor.scss';
 
-export default function Edit( { attributes, setAttributes } ) {
-	const { text, alignment, textcolor, blockbgcolor } = attributes;
+function Edit( props ) {
+	// withColors give us access to the block colors to easily use them. It checks the theme color settings
+	const {
+		attributes,
+		setAttributes,
+		textColor,
+		setTextColor,
+		backgroundColor,
+		setBackgroundColor,
+	} = props;
+
+	const { text, alignment } = attributes;
 
 	const onChangeText = ( newtext ) => {
 		setAttributes( { text: newtext } );
 	};
 	const onChangeAlignment = ( newalignment ) => {
 		setAttributes( { alignment: newalignment } );
-	};
-
-	const onBlockBackgroundColorChange = ( newBGColor ) => {
-		setAttributes( { blockbgcolor: newBGColor } );
-	};
-
-	const onTextColorChange = ( newTextColor ) => {
-		setAttributes( { textcolor: newTextColor } );
 	};
 
 	return (
@@ -42,20 +45,20 @@ export default function Edit( { attributes, setAttributes } ) {
 					disableCustomColors={ false }
 					colorSettings={ [
 						{
-							value: blockbgcolor,
-							onChange: onBlockBackgroundColorChange,
+							value: backgroundColor.color,
+							onChange: setBackgroundColor,
 							label: __( 'Block Background Color', 'text-box' ),
 						},
 						{
-							value: textcolor,
-							onChange: onTextColorChange,
+							value: textColor.color,
+							onChange: setTextColor,
 							label: __( 'Text Color', 'text-box' ),
 						},
 					] }
 				>
 					<ContrastChecker
-						textColor={ textcolor }
-						backgroundColor={ blockbgcolor }
+						textColor={ textColor.color }
+						backgroundColor={ backgroundColor.color }
 					/>
 				</PanelColorSettings>
 				<PanelBody
@@ -91,8 +94,8 @@ export default function Edit( { attributes, setAttributes } ) {
 				{ ...useBlockProps( {
 					className: `text-box-align-${ alignment }`,
 					style: {
-						backgroundColor: `${ blockbgcolor }`,
-						color: `${ textcolor }`,
+						backgroundColor: `${ backgroundColor.color }`,
+						color: `${ textColor.color }`,
 					},
 				} ) }
 				onChange={ onChangeText } // Store updated content as a block attribute
@@ -104,3 +107,8 @@ export default function Edit( { attributes, setAttributes } ) {
 		</>
 	);
 }
+
+export default withColors( {
+	textColor: 'color',
+	backgroundColor: 'background-color',
+} )( Edit );

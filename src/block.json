@@ -24,13 +24,17 @@
 			"type": "string",
 			"default": "left"
 		},
-		"textcolor": {
-			"type": "string",
-			"default": "#000"
+		"textColor": {
+			"type": "string"
 		},
-		"blockbgcolor": {
-			"type": "string",
-			"default": "#f60"
+		"backgroundColor": {
+			"type": "string"
+		},
+		"customTextColor": {
+			"type": "string"
+		},
+		"customBackgroundColor": {
+			"type": "string"
 		}
 	}
 }
