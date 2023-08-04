@@ -13,33 +13,34 @@
     "box"
   ],
   "supports": {
-    "html": false
+    "html": false,
+    "color": {
+      "text": true,
+      "background": true,
+      "gradients": true
+    }
   },
   "textdomain": "text-box",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
   "attributes": {
+    "alignment": {
+      "type": "string",
+      "default": "left"
+    },
+    "gradient": {
+      "type": "string",
+      "default": "vivid-cyan-blue-to-vivid-purple"
+    },
     "text": {
       "type": "string",
       "source": "html",
       "selector": "h4"
     },
-    "alignment": {
-      "type": "string",
-      "default": "left"
-    },
     "textColor": {
-      "type": "string"
-    },
-    "backgroundColor": {
-      "type": "string"
-    },
-    "customTextColor": {
-      "type": "string"
-    },
-    "customBackgroundColor": {
-      "type": "string"
+      "type": "string",
+      "default": "custom-yellow"
     }
   }
 }

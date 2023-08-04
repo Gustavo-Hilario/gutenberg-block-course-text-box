@@ -6,25 +6,15 @@ import {
 	BlockControls,
 	AlignmentToolbar,
 	InspectorControls,
-	PanelColorSettings,
-	ContrastChecker,
-	withColors,
 } from '@wordpress/block-editor';
 
 import { PanelBody, TextareaControl, TextControl } from '@wordpress/components';
 
 import './editor.scss';
 
-function Edit( props ) {
+export default function Edit( props ) {
 	// withColors give us access to the block colors to easily use them. It checks the theme color settings
-	const {
-		attributes,
-		setAttributes,
-		textColor,
-		setTextColor,
-		backgroundColor,
-		setBackgroundColor,
-	} = props;
+	const { attributes, setAttributes } = props;
 
 	const { text, alignment } = attributes;
 
@@ -38,29 +28,6 @@ function Edit( props ) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelColorSettings
-					title={ __( 'Color Settings', 'text-box' ) }
-					icon="admin-appearance"
-					initialOpen={ false }
-					disableCustomColors={ false }
-					colorSettings={ [
-						{
-							value: backgroundColor.color,
-							onChange: setBackgroundColor,
-							label: __( 'Block Background Color', 'text-box' ),
-						},
-						{
-							value: textColor.color,
-							onChange: setTextColor,
-							label: __( 'Text Color', 'text-box' ),
-						},
-					] }
-				>
-					<ContrastChecker
-						textColor={ textColor.color }
-						backgroundColor={ backgroundColor.color }
-					/>
-				</PanelColorSettings>
 				<PanelBody
 					title={ __( 'Text Controls', 'text-box' ) }
 					icon="text"
@@ -90,13 +57,10 @@ function Edit( props ) {
 				/>
 			</BlockControls>
 			<RichText
+				// By using color support, useBlockProps will add the correct classes to our block
 				// By adding className and style we don't overwrite the default classes and styles
 				{ ...useBlockProps( {
 					className: `text-box-align-${ alignment }`,
-					style: {
-						backgroundColor: `${ backgroundColor.color }`,
-						color: `${ textColor.color }`,
-					},
 				} ) }
 				onChange={ onChangeText } // Store updated content as a block attribute
 				value={ text } //dynamic value
@@ -107,8 +71,3 @@ function Edit( props ) {
 		</>
 	);
 }
-
-export default withColors( {
-	textColor: 'color',
-	backgroundColor: 'background-color',
-} )( Edit );
