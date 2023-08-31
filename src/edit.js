@@ -5,12 +5,12 @@ import {
 	RichText,
 	BlockControls,
 	AlignmentToolbar,
-	InspectorControls,
 } from '@wordpress/block-editor';
 
-import { PanelBody, TextareaControl, TextControl } from '@wordpress/components';
-
 import './editor.scss';
+
+// eslint-disable-next-line
+import { __experimentalBoxControl as BoxControl } from '@wordpress/components';
 
 export default function Edit( props ) {
 	// withColors give us access to the block colors to easily use them. It checks the theme color settings
@@ -27,29 +27,6 @@ export default function Edit( props ) {
 
 	return (
 		<>
-			<InspectorControls>
-				<PanelBody
-					title={ __( 'Text Controls', 'text-box' ) }
-					icon="text"
-					initialOpen
-				>
-					<TextControl
-						label={ __( 'Label', 'text-box' ) }
-						value={ text }
-						onChange={ onChangeText }
-						help={ __( 'Help text', 'text-box' ) }
-					/>
-					<TextareaControl
-						label={ __( 'Nice Text Area', 'text-box' ) }
-						placeholder={ __(
-							'Enter your text here!',
-							'text-box'
-						) }
-						help={ __( 'Help Textarea', 'text-box' ) }
-					/>
-				</PanelBody>
-			</InspectorControls>
-
 			<BlockControls>
 				<AlignmentToolbar
 					value={ alignment }

@@ -13,6 +13,24 @@
 			"text": true,
 			"background": true,
 			"gradients": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true,
+			"__experimentalFontFamily": true,
+			"__experimentalTextDecoration": true,
+			"__experimentalFontStyle": true,
+			"__experimentalFontWeight": true,
+			"__experimentalLetterSpacing": true,
+			"__experimentalTextTransform": true,
+			"__experimentalWritingMode": true,
+			"__experimentalDefaultControls": {
+				"fontSize": true
+			}
 		}
 	},
 	"textdomain": "text-box",
@@ -36,6 +54,19 @@
 		"textColor": {
 			"type": "string",
 			"default": "custom-yellow"
-		}		
+		},
+		"style": {
+		"type": "object",
+		"default": {
+				"spacing": {
+					"padding": {
+						"top": "50px",
+						"right": "50px",
+						"bottom": "50px",
+						"left": "50px"
+					}
+				}		
+			}
+		}			
 	}
 }
