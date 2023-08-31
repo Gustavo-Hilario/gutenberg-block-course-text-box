@@ -46,14 +46,14 @@
 			"type": "string",
 			"default": "vivid-cyan-blue-to-vivid-purple"
 		},
-		"text": {
-			"type": "string",
-			"source": "html",
-			"selector": "h4"
+		"shadow": {
+			"type": "bolean",
+			"default": "false"
 		},
-		"textColor": {
-			"type": "string",
-			"default": "custom-yellow"
+
+		"shadowOpacity": {
+			"type": "number",
+			"default": 30
 		},
 		"style": {
 		"type": "object",
@@ -67,6 +67,15 @@
 					}
 				}		
 			}
-		}			
+		},	
+		"text": {
+			"type": "string",
+			"source": "html",
+			"selector": "h4"
+		},
+		"textColor": {
+			"type": "string",
+			"default": "custom-yellow"
+		}		
 	}
 }
