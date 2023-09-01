@@ -151,7 +151,56 @@ __webpack_require__.r(__webpack_exports__);
       gradient: 'luminous-vivid-amber-to-luminous-vivid-orange',
       textColor: 'custom-green'
     }
-  }]
+  }],
+  transforms: {
+    from: [{
+      type: 'block',
+      blocks: ['core/paragraph'],
+      transform: ({
+        content,
+        align
+      }) => {
+        return (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.createBlock)('blocks-course/text-box', {
+          text: content,
+          alignment: align
+        });
+      }
+    }, {
+      type: 'enter',
+      regExp: /textbox/i,
+      transform: () => {
+        return (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.createBlock)('blocks-course/text-box', {
+          shadow: true,
+          gradient: 'luminous-vivid-amber-to-luminous-vivid-orange'
+        });
+      }
+    }, {
+      type: 'prefix',
+      prefix: 'textbox',
+      transform: () => {
+        return (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.createBlock)('blocks-course/text-box');
+      }
+    }],
+    to: [{
+      type: 'block',
+      blocks: ['core/paragraph'],
+      // Allow transform when text length is less than 100 characters.
+      isMatch: ({
+        text
+      }) => {
+        return text.length < 100;
+      },
+      transform: ({
+        text,
+        alignment
+      }) => {
+        return (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.createBlock)('core/paragraph', {
+          content: text,
+          align: alignment
+        });
+      }
+    }]
+  }
 });
 
 /***/ }),

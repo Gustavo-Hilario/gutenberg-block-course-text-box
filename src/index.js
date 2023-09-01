@@ -1,4 +1,4 @@
-import { registerBlockType } from '@wordpress/blocks';
+import { registerBlockType, createBlock } from '@wordpress/blocks';
 import './style.scss';
 
 import Edit from './edit';
@@ -35,4 +35,52 @@ registerBlockType( metadata.name, {
 			},
 		},
 	],
+	transforms: {
+		from: [
+			{
+				type: 'block',
+				blocks: [ 'core/paragraph' ],
+				transform: ( { content, align } ) => {
+					return createBlock( 'blocks-course/text-box', {
+						text: content,
+						alignment: align,
+					} );
+				},
+			},
+			{
+				type: 'enter',
+				regExp: /textbox/i,
+				transform: () => {
+					return createBlock( 'blocks-course/text-box', {
+						shadow: true,
+						gradient:
+							'luminous-vivid-amber-to-luminous-vivid-orange',
+					} );
+				},
+			},
+			{
+				type: 'prefix',
+				prefix: 'textbox',
+				transform: () => {
+					return createBlock( 'blocks-course/text-box' );
+				},
+			},
+		],
+		to: [
+			{
+				type: 'block',
+				blocks: [ 'core/paragraph' ],
+				// Allow transform when text length is less than 100 characters.
+				isMatch: ( { text } ) => {
+					return text.length < 100;
+				},
+				transform: ( { text, alignment } ) => {
+					return createBlock( 'core/paragraph', {
+						content: text,
+						align: alignment,
+					} );
+				},
+			},
+		],
+	},
 } );
