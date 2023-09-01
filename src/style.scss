@@ -21,6 +21,14 @@
 		}
 	}
 
+	&.is-style-rounded {
+		border-radius: 30px;
+	}
+
+	&.is-style-squared {
+		border-radius: 0;
+	}
+
 	&.text-box-align-right {
 		text-align: right;
 	}

@@ -19,6 +19,12 @@
 .wp-block-blocks-course-text-box.has-shadow.shadow-opacity-40 {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
+.wp-block-blocks-course-text-box.is-style-rounded {
+  border-radius: 30px;
+}
+.wp-block-blocks-course-text-box.is-style-squared {
+  border-radius: 0;
+}
 .wp-block-blocks-course-text-box.text-box-align-right {
   text-align: right;
 }
