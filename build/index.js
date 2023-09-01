@@ -119,6 +119,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./edit */ "./src/edit.js");
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./save */ "./src/save.js");
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./block.json */ "./src/block.json");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__);
+
 
 
 
@@ -139,7 +142,16 @@ __webpack_require__.r(__webpack_exports__);
     foreground: '#fff'
   },
   edit: _edit__WEBPACK_IMPORTED_MODULE_3__["default"],
-  save: _save__WEBPACK_IMPORTED_MODULE_4__["default"]
+  save: _save__WEBPACK_IMPORTED_MODULE_4__["default"],
+  variations: [{
+    name: 'blocks-course/gradient-text-box',
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)('Gradient Text', 'text-box'),
+    icon: 'wordpress',
+    attributes: {
+      gradient: 'luminous-vivid-amber-to-luminous-vivid-orange',
+      textColor: 'custom-green'
+    }
+  }]
 });
 
 /***/ }),
@@ -349,7 +361,7 @@ module.exports = window["wp"]["i18n"];
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"blocks-course/text-box","version":"0.1.0","title":"Textbox","category":"text","description":"A box of text.","keywords":["text","textbox","paragraph","box"],"supports":{"html":false,"color":{"text":true,"background":true,"gradients":true},"spacing":{"margin":true,"padding":true},"typography":{"fontSize":true,"lineHeight":true,"__experimentalFontFamily":true,"__experimentalTextDecoration":true,"__experimentalFontStyle":true,"__experimentalFontWeight":true,"__experimentalLetterSpacing":true,"__experimentalTextTransform":true,"__experimentalWritingMode":true,"__experimentalDefaultControls":{"fontSize":true}}},"styles":[{"name":"squared","label":"Squared","isDefault":true},{"name":"rounded","label":"Rounded"}],"textdomain":"text-box","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"alignment":{"type":"string","default":"left"},"gradient":{"type":"string","default":"vivid-cyan-blue-to-vivid-purple"},"shadow":{"type":"bolean","default":"false"},"shadowOpacity":{"type":"number","default":30},"style":{"type":"object","default":{"spacing":{"padding":{"top":"50px","right":"50px","bottom":"50px","left":"50px"}}}},"text":{"type":"string","source":"html","selector":"h4"},"textColor":{"type":"string","default":"custom-yellow"}}}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"blocks-course/text-box","version":"0.1.0","title":"Textbox","category":"text","description":"A box of text.","keywords":["text","textbox","paragraph","box"],"supports":{"html":false,"color":{"text":true,"background":true,"gradients":true},"spacing":{"margin":true,"padding":true},"typography":{"fontSize":true,"lineHeight":true,"__experimentalFontFamily":true,"__experimentalTextDecoration":true,"__experimentalFontStyle":true,"__experimentalFontWeight":true,"__experimentalLetterSpacing":true,"__experimentalTextTransform":true,"__experimentalWritingMode":true,"__experimentalDefaultControls":{"fontSize":true}}},"example":{"attributes":{"text":"This is some text!","gradient":"vivid-cyan-blue-to-vivid-purple","shadow":true}},"styles":[{"name":"squared","label":"Squared","isDefault":true},{"name":"rounded","label":"Rounded"}],"textdomain":"text-box","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"alignment":{"type":"string","default":"left"},"gradient":{"type":"string","default":"vivid-cyan-blue-to-vivid-purple"},"shadow":{"type":"bolean","default":"false"},"shadowOpacity":{"type":"number","default":30},"style":{"type":"object","default":{"spacing":{"padding":{"top":"50px","right":"50px","bottom":"50px","left":"50px"}}}},"text":{"type":"string","source":"html","selector":"h4"},"textColor":{"type":"string","default":"custom-yellow"}}}');
 
 /***/ })
 

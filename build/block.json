@@ -38,6 +38,13 @@
       }
     }
   },
+  "example": {
+    "attributes": {
+      "text": "This is some text!",
+      "gradient": "vivid-cyan-blue-to-vivid-purple",
+      "shadow": true
+    }
+  },
   "styles": [
     {
       "name": "squared",
