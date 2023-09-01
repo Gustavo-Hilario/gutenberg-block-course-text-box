@@ -18,7 +18,7 @@ export default function save( { attributes } ) {
 				className: classes,
 			} ) }
 			value={ text }
-			tagName="h4"
+			tagName="p"
 		/>
 	);
 }

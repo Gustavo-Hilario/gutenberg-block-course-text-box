@@ -88,7 +88,7 @@ export default function Edit( props ) {
 				value={ text } //dynamic value
 				placeholder={ __( 'Enter your text here …' ) }
 				allowedFormats={ [ 'core/bold', 'core/italic' ] }
-				tagName="h4"
+				tagName="p"
 			/>
 		</>
 	);

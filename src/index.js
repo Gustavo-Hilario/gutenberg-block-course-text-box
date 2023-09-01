@@ -7,6 +7,9 @@ import metadata from './block.json';
 
 import { __ } from '@wordpress/i18n';
 
+// Importing deprecated versions of the block
+import v1 from './deprecated/v1';
+
 registerBlockType( metadata.name, {
 	icon: {
 		src: (
@@ -24,6 +27,7 @@ registerBlockType( metadata.name, {
 	},
 	edit: Edit,
 	save,
+	deprecated: [ v1 ],
 	variations: [
 		{
 			name: 'blocks-course/gradient-text-box',
