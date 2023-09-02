@@ -2,13 +2,12 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 import classNames from 'classnames';
 
+import _ from 'lodash';
+
 // Importing all block attributes
 import blockData from '../block.json';
 
-// Importing _ from lodash
-import _ from 'lodash';
-
-const v1 = {
+const v2 = {
 	supports: {
 		html: false,
 		color: {
@@ -36,18 +35,16 @@ const v1 = {
 		},
 	},
 	attributes: {
-		// We're using the spread operator to get all the attributes from block.json but we're also updating the text attribute
+		// Omit will remove the textAlignment attribute "heading" from the attributes object
+
 		..._.omit( blockData.attributes, [ 'textAlignment' ] ),
 		alignment: {
 			type: 'string',
 			default: 'left',
 		},
-		text: {
-			type: 'string',
-			source: 'html',
-			selector: 'h4',
-		},
 	},
+	// Gets the old attributes and returns the new ones
+	// Necessary when the attributes changed
 	migrate: ( attributes ) => {
 		return {
 			..._.omit( attributes, [ 'alignment' ] ),
@@ -69,10 +66,10 @@ const v1 = {
 				} ) }
 				value={ text }
 				// Here we're using H4
-				tagName="h4"
+				tagName="p"
 			/>
 		);
 	},
 };
 
-export default v1;
+export default v2;

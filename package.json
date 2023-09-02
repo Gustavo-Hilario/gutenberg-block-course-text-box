@@ -33,7 +33,8 @@
 		"@wordpress/stylelint-config": "^21.21.0",
 		"eslint-config-prettier": "^8.8.0",
 		"husky": "^8.0.3",
-		"lint-staged": "^13.2.3"
+		"lint-staged": "^13.2.3",
+		"lodash": "^4.17.21"
 	},
 	"dependencies": {
 		"@wordpress/components": "^25.4.0",

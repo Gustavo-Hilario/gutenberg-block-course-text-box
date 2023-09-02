@@ -53,7 +53,7 @@
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
 	"attributes": {
-		"alignment": {
+		"textAlignment": {
 			"type": "string",
 			"default": "left"
 		},

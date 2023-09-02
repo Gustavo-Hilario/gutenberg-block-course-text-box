@@ -9,6 +9,7 @@ import { __ } from '@wordpress/i18n';
 
 // Importing deprecated versions of the block
 import v1 from './deprecated/v1';
+import v2 from './deprecated/v2';
 
 registerBlockType( metadata.name, {
 	icon: {
@@ -27,7 +28,8 @@ registerBlockType( metadata.name, {
 	},
 	edit: Edit,
 	save,
-	deprecated: [ v1 ],
+	// Importing deprecated versions of the block. Inverse chronological order.
+	deprecated: [ v2, v1 ],
 	variations: [
 		{
 			name: 'blocks-course/gradient-text-box',
@@ -47,7 +49,7 @@ registerBlockType( metadata.name, {
 				transform: ( { content, align } ) => {
 					return createBlock( 'blocks-course/text-box', {
 						text: content,
-						alignment: align,
+						textAlignment: align,
 					} );
 				},
 			},
@@ -78,10 +80,10 @@ registerBlockType( metadata.name, {
 				isMatch: ( { text } ) => {
 					return text.length < 100;
 				},
-				transform: ( { text, alignment } ) => {
+				transform: ( { text, textAlignment } ) => {
 					return createBlock( 'core/paragraph', {
 						content: text,
-						align: alignment,
+						align: textAlignment,
 					} );
 				},
 			},

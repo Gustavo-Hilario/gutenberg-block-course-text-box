@@ -23,13 +23,13 @@ export default function Edit( props ) {
 	// withColors give us access to the block colors to easily use them. It checks the theme color settings
 	const { attributes, setAttributes } = props;
 
-	const { text, alignment, shadow, shadowOpacity } = attributes;
+	const { text, textAlignment, shadow, shadowOpacity } = attributes;
 
 	const onChangeText = ( newtext ) => {
 		setAttributes( { text: newtext } );
 	};
 	const onChangeAlignment = ( newalignment ) => {
-		setAttributes( { alignment: newalignment } );
+		setAttributes( { textAlignment: newalignment } );
 	};
 
 	const toggleShadow = () => {
@@ -40,7 +40,7 @@ export default function Edit( props ) {
 		setAttributes( { shadowOpacity: value } );
 	};
 
-	const classes = classNames( `text-box-align-${ alignment }`, {
+	const classes = classNames( `text-box-align-${ textAlignment }`, {
 		'has-shadow': shadow,
 		[ `shadow-opacity-${ shadowOpacity }` ]: shadow && shadowOpacity,
 	} );
@@ -74,7 +74,7 @@ export default function Edit( props ) {
 				] }
 			>
 				<AlignmentToolbar
-					value={ alignment }
+					value={ textAlignment }
 					onChange={ onChangeAlignment }
 				/>
 			</BlockControls>
